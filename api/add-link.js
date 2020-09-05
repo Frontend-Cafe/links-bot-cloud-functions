@@ -1,6 +1,6 @@
 const url = require("url");
 const MongoClient = require("mongodb").MongoClient;
-const linkPreviewGenerator = require("link-preview-generator");
+const LinkPreview = require("link-preview");
 
 // let cachedDb = null;
 
@@ -17,9 +17,7 @@ const linkPreviewGenerator = require("link-preview-generator");
 //   return db;
 // }
 
-const previewData = await linkPreviewGenerator(
-  "https://www.youtube.com/watch?v=8mqqY2Ji7_g"
-);
+const linkData = LinkPreview.search("www.google.com");
 
 module.exports = async (req, res) => {
   //   const db = await connectToDatabase(process.env.MONGODB_URI);
@@ -29,6 +27,6 @@ module.exports = async (req, res) => {
   // const tags = req.query.tags
 
   res.json({
-    body: previewData,
+    body: linkData,
   });
 };

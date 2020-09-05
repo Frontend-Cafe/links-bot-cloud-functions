@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Frontend-Cafe/links-bot-cloud-functions#readme",
   "dependencies": {
     "link-preview-generator": "0.0.4",
-    "mongodb": "^3.6.1"
+    "mongodb": "^3.6.1",
+    "node-link-preview": "0.0.2"
   }
 }
