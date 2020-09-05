@@ -1,6 +1,5 @@
 {
   "name": "bot-links",
-  "version": 2,
   "headers": [
     {
       "source": "/api/(.*)",
