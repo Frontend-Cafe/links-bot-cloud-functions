@@ -1,6 +1,6 @@
 const url = require("url");
 const MongoClient = require("mongodb").MongoClient;
-const { linkPreviewCallback } = require(`link-preview-node`);
+const { linkPreview } = require(`link-preview-node`);
 
 // let cachedDb = null;
 
@@ -17,7 +17,7 @@ const { linkPreviewCallback } = require(`link-preview-node`);
 //   return db;
 // }
 
-const linkData = linkPreviewCallback("google.com");
+const linkData = linkPreview("google.com");
 
 module.exports = async (req, res) => {
   //   const db = await connectToDatabase(process.env.MONGODB_URI);
