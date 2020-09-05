@@ -1,0 +1,20 @@
+{
+  "name": "links-bot-cloud-functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frontend-Cafe/links-bot-cloud-functions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frontend-Cafe/links-bot-cloud-functions/issues"
+  },
+  "homepage": "https://github.com/Frontend-Cafe/links-bot-cloud-functions#readme"
+}
