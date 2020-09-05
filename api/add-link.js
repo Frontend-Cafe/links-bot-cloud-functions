@@ -1,6 +1,6 @@
 const url = require("url");
 const MongoClient = require("mongodb").MongoClient;
-const LinkPreview = require("link-preview");
+const LinkPreview = require("node-link-preview");
 
 // let cachedDb = null;
 
