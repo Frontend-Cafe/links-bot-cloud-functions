@@ -24,7 +24,11 @@ module.exports = async (req, res) => {
 
   // const tags = req.query.tags
 
-  linkPreview("google.com")
+  let url = req.query.url || "google.com";
+
+  if (!url.includes("https://")) url = `https://${url}`;
+
+  linkPreview(url)
     .then((data) =>
       res.json({
         body: data,
