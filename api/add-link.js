@@ -17,8 +17,6 @@ const { linkPreview } = require(`link-preview-node`);
 //   return db;
 // }
 
-const linkData = linkPreview("google.com");
-
 module.exports = async (req, res) => {
   //   const db = await connectToDatabase(process.env.MONGODB_URI);
   //   const collection = await db.collection("links");
@@ -26,7 +24,11 @@ module.exports = async (req, res) => {
 
   // const tags = req.query.tags
 
-  res.json({
-    body: linkData,
-  });
+  linkPreview("google.com")
+    .then((data) =>
+      res.json({
+        body: data,
+      })
+    )
+    .catch((err) => console.error(err));
 };
