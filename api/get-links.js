@@ -20,9 +20,9 @@ module.exports = async (req, res) => {
   const db = await connectToDatabase(process.env.MONGODB_URI);
   const collection = await db.collection("links");
 
-  const tagsList = req.body.tags;
+  const tagsList = req.query.tags;
 
-  const query = { tags: { $all: tagsList } };
+  const query = { tags: { $all: tagsList.split(",") } };
 
   const links = await collection.find(query).toArray();
 
