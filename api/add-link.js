@@ -32,12 +32,16 @@ module.exports = async (req, res) => {
   // Sanitizing URLs
   if (!url.includes("https://")) url = `https://${url}`;
 
-  linkPreview(url)
-    .then((data) =>
+  try {
+    const linkPreview = await linkPreview(url);
+
+    if (linkPreview) {
       res.json({
         body: data,
         tags: tags,
-      })
-    )
-    .catch((err) => console.error(err));
+      });
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
 };
