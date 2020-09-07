@@ -27,7 +27,8 @@ module.exports = async (req, res) => {
   // }
   console.log(req.body);
 
-  const { url, tags } = JSON.parse(req.body);
+  const { url, tags } =
+    typeof req.body == "string" ? JSON.parse(req.body) : req.body;
 
   // Sanitizing URLs
   if (!url.includes("https://")) url = `https://${url}`;
