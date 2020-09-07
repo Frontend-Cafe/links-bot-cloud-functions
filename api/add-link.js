@@ -32,16 +32,24 @@ module.exports = async (req, res) => {
   // Sanitizing URLs
   if (!url.includes("https://")) url = `https://${url}`;
 
-  try {
-    const linkPreview = await linkPreview(url);
+  linkPreview(url)
+    .then(async (data) => {
+      try {
+        const request = await collection.insertOne(data);
 
-    if (linkPreview) {
-      res.json({
-        body: linkPreview,
-        tags: tags,
-      });
-    }
-  } catch (error) {
-    res.status(500).send(error);
-  }
+        if (!request) {
+          throw new Error("No se pudo guardar el link en Mongo");
+        }
+
+        res.json({
+          body: data,
+          tags: tags,
+        });
+      } catch (error) {
+        res.status(500).send(err);
+      }
+    })
+    .catch((err) =>
+      res.status(500).send("No se pudo traer el preview del link")
+    );
 };
