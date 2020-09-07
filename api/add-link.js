@@ -25,9 +25,9 @@ module.exports = async (req, res) => {
   //   tags: [],
   //   url: ''
   // }
-  console.log(req.body);
+  console.log(JSON.parse(req.body));
 
-  const { url, tags } = req.body;
+  const { url, tags } = JSON.parse(req.body);
 
   // Sanitizing URLs
   if (!url.includes("https://")) url = `https://${url}`;
