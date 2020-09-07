@@ -37,7 +37,7 @@ module.exports = async (req, res) => {
 
     if (linkPreview) {
       res.json({
-        body: data,
+        body: linkPreview,
         tags: tags,
       });
     }
