@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
   //   tags: [],
   //   url: ''
   // }
-  console.log(JSON.parse(req.body));
+  console.log(req.body);
 
   const { url, tags } = JSON.parse(req.body);
 
