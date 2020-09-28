@@ -1,5 +1,4 @@
 {
-  "name": "bot-links",
   "headers": [
     {
       "source": "/api/(.*)",

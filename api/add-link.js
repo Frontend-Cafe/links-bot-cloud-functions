@@ -36,7 +36,9 @@ module.exports = async (req, res) => {
   linkPreview(url)
     .then(async (data) => {
       try {
-        const request = await collection.insertOne({ ...data, tags: tags });
+        const linkData = { ...data, tags: tags, date: new Date() };
+
+        const request = await collection.insertOne(linkData);
 
         if (!request) {
           throw new Error("No se pudo guardar el link en Mongo");

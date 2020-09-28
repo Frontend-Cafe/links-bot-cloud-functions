@@ -22,9 +22,15 @@ module.exports = async (req, res) => {
 
   const tagsList = req.query.tags ? req.query.tags.split(",") : [];
 
-  const query = { tags: { $all: tagsList } };
+  const query = {};
 
-  const links = await collection.find(query).toArray();
+  if (tagsList.length) {
+    query.tags = {
+      $all: tagsList,
+    };
+  }
+
+  const links = await collection.find(query).limit(15).toArray();
 
   res.json({
     tags: tagsList,
